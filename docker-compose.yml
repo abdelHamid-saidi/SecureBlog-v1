@@ -1,0 +1,19 @@
+# SecureBlog v1
+# Lancer : docker compose up --build
+# Ouvrir : http://localhost:3000
+
+services:
+  secureblog:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      NODE_ENV: production
+      SESSION_SECRET: "secureblog-v1-lab-secret"
+      DATA_DIR: "/app/data"
+    volumes:
+      - secureblog-data:/app/data
+
+volumes:
+  secureblog-data:
